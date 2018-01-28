@@ -162,6 +162,7 @@ public class Controller implements Initializable {
 
         }
         if(knuckle.getIsMovingLeft()){
+            this.sound.play();
             if(knuckle.getLayoutX()-1 > 0){
 
                 knuckle.setLayoutX(knuckle.getLayoutX()-1);
