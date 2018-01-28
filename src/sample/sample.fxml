@@ -1,0 +1,23 @@
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import Game.Player?>
+
+<AnchorPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" onKeyPressed="#keyPressed">
+    <Pane fx:id="menu"  prefWidth="500" prefHeight="750" >
+
+        <ImageView fx:id="title"  layoutX="23" layoutY="44" onMouseClicked="#handleOnMouseClicked"/>
+
+        <ImageView fx:id="play"  layoutX="155" layoutY="302" onMouseClicked="#handleOnMouseClicked"/>
+        <ImageView fx:id="options" layoutX="105" layoutY="426" onMouseClicked="#handleOnMouseClicked"/>
+        <ImageView fx:id="level" layoutX="115" layoutY="550" onMouseClicked="#handleOnMouseClicked"/>
+
+    </Pane>
+
+    <Pane fx:id="lvl_1" visible="false" prefWidth="500" prefHeight="750" >
+        <Player fx:id="knuckle" layoutX="51" layoutY="595" />
+    </Pane>
+
+</AnchorPane>
