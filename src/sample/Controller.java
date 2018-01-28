@@ -32,7 +32,7 @@ public class Controller implements Initializable {
     @FXML
     Player knuckle;
 
-    int mouvement;
+    int mouvement,jump;
     MediaPlayer sound;
 
     @FXML
@@ -60,7 +60,7 @@ public class Controller implements Initializable {
             switch (event.getCode()) {
                 case UP:
                 case KP_UP:
-
+                    knuckle.setIsJumping(true);
                     break;
                 case DOWN:
                 case KP_DOWN:
@@ -121,6 +121,7 @@ public class Controller implements Initializable {
 
         //Set anim
         this.mouvement = 0;
+        this.jump = 0;
 
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.millis(50),
@@ -141,14 +142,37 @@ public class Controller implements Initializable {
             this.sound.stop();
         }
 
+        if(knuckle.getIsJumping()){
+            if(knuckle.getLayoutY()-1 > 0){
+                if(jump>=10){
+                    knuckle.setLayoutY(knuckle.getLayoutY()+5);
+                    knuckle.setImage(new Image("img/sprites/55.png"));
+                }else{
+                    knuckle.setLayoutY(knuckle.getLayoutY()-5);
+                    knuckle.setImage(new Image("img/sprites/55.png"));
+                }
+
+                this.jump++;
+
+            }else{
+                this.jump=0;
+                knuckle.setImage(knuckle.getNoMove());
+                knuckle.setIsJumping(false);
+            }
+            if(this.jump>=20){
+                this.jump=0;
+                knuckle.setImage(knuckle.getNoMove());
+                knuckle.setIsJumping(false);
+            }
+        }
 
         if(knuckle.getIsMovingRight()){
             this.sound.play();
             if(knuckle.getLayoutX()+36+1 < 500){
 
-                    knuckle.setLayoutX(knuckle.getLayoutX()+1);
+                    knuckle.setLayoutX(knuckle.getLayoutX()+5);
                     knuckle.setImage(knuckle.getSprite().get(this.mouvement%knuckle.getSprite().size()));
-
+                    knuckle.setScaleX(1);
                 this.mouvement++;
 
             }else{
@@ -165,9 +189,9 @@ public class Controller implements Initializable {
             this.sound.play();
             if(knuckle.getLayoutX()-1 > 0){
 
-                knuckle.setLayoutX(knuckle.getLayoutX()-1);
+                knuckle.setLayoutX(knuckle.getLayoutX()-5);
                 knuckle.setImage(knuckle.getSprite().get(this.mouvement%knuckle.getSprite().size()));
-
+                knuckle.setScaleX(-1);
                 this.mouvement++;
 
             }else{
