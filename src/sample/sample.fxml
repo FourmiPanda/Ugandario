@@ -16,6 +16,13 @@
 
     </Pane>
 
+
+    <Pane fx:id="level_choice" prefWidth="500" prefHeight="750" visible="false">
+        <ImageView fx:id="level_ch" layoutX="115" layoutY="90"/>
+        <ImageView fx:id="lvl1" layoutX="80" layoutY="240"/>
+        <ImageView fx:id="lvl2" layoutX="215" layoutY="240"/>
+        <ImageView fx:id="lvl3" layoutX="343" layoutY="240"/>
+    </Pane>
     <Pane fx:id="lvl_1" visible="false" prefWidth="500" prefHeight="750" >
         <Player fx:id="knuckle" layoutX="51" layoutY="595" />
     </Pane>

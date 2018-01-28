@@ -24,10 +24,10 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    Pane menu,lvl_1;
+    Pane menu,lvl_1,level_choice;
 
     @FXML
-    ImageView play,options,level,title;
+    ImageView play,options,level,title,lvl1,lvl2,lvl3,level_ch;
 
     @FXML
     Player knuckle;
@@ -42,11 +42,15 @@ public class Controller implements Initializable {
             switch (((ImageView) event.getSource()).getId()){
                 case "play":
                     menu.setVisible(false);
+                    level_choice.setVisible(false);
                     lvl_1.setVisible(true);
                     break;
                 case "options":
                     break;
                 case "level":
+                    menu.setVisible(false);
+                    lvl_1.setVisible(false);
+                    level_choice.setVisible(true);
                     break;
                 default:
                     break;
@@ -104,15 +108,17 @@ public class Controller implements Initializable {
                 BackgroundSize.DEFAULT);
         lvl_1.setBackground(new Background(myBI2));
 
+        level_choice.setBackground(new Background(myBI));
+
         //Set Button
         play.setImage(new Image("img/tool/button_play.png"));
         options.setImage(new Image("img/tool/button_options.png"));
         level.setImage(new Image("img/tool/button_level.png"));
         title.setImage(new Image("img/tool/UgandarioTitle.png"));
-
-        //Set player
-//        knuckle.setImage(new Image("img/sprites/54.png"));
-
+        lvl1.setImage(new Image("img/tool/level_1.png"));
+        lvl2.setImage(new Image("img/tool/level_2.png"));
+        lvl3.setImage(new Image("img/tool/level_3.png"));
+        level_ch.setImage(new Image("img/tool/button_level.png"));
         //Set focus
         lvl_1.setFocusTraversable(true);
 
