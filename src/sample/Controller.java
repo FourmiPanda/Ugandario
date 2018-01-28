@@ -33,7 +33,9 @@ public class Controller implements Initializable {
     Player knuckle;
 
     int mouvement,jump;
-    MediaPlayer sound;
+    MediaPlayer sound,ost;
+
+
 
     @FXML
     protected void handleOnMouseClicked(MouseEvent event) {
@@ -44,6 +46,7 @@ public class Controller implements Initializable {
                     menu.setVisible(false);
                     level_choice.setVisible(false);
                     lvl_1.setVisible(true);
+                    this.ost.stop();
                     break;
                 case "options":
                     break;
@@ -123,7 +126,10 @@ public class Controller implements Initializable {
         lvl_1.setFocusTraversable(true);
 
         //Set sound
-        this.sound =  new MediaPlayer( new Media(new File("src/sound/click.mp3").toURI().toString()));
+
+        this.ost = new MediaPlayer(new Media(new File("src/sound/ost.mp3").toURI().toString()));
+        this.sound =  new MediaPlayer(new Media(new File("src/sound/click.mp3").toURI().toString()));
+        this.ost.play();
 
         //Set anim
         this.mouvement = 0;
@@ -143,7 +149,6 @@ public class Controller implements Initializable {
     }
 
     public void update(){
-
         if(!knuckle.getIsMovingLeft() && !knuckle.getIsMovingRight()){
             this.sound.stop();
         }
