@@ -1,0 +1,5 @@
+.menu-button:hover{
+
+    -fx-effect: dropshadow( one-pass-box , black , 10 , 0.0 , 2 , 0 );
+
+}

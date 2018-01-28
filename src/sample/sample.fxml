@@ -5,14 +5,14 @@
 
 <?import Game.Player?>
 
-<AnchorPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" onKeyPressed="#keyPressed">
+<AnchorPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" onKeyPressed="#keyPressed" stylesheets="@../css/application.css">
     <Pane fx:id="menu"  prefWidth="500" prefHeight="750" >
 
         <ImageView fx:id="title"  layoutX="23" layoutY="44" onMouseClicked="#handleOnMouseClicked"/>
 
-        <ImageView fx:id="play"  layoutX="155" layoutY="302" onMouseClicked="#handleOnMouseClicked"/>
-        <ImageView fx:id="options" layoutX="105" layoutY="426" onMouseClicked="#handleOnMouseClicked"/>
-        <ImageView fx:id="level" layoutX="115" layoutY="550" onMouseClicked="#handleOnMouseClicked"/>
+        <ImageView fx:id="play"  layoutX="155" layoutY="302" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
+        <ImageView fx:id="options" layoutX="105" layoutY="426" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
+        <ImageView fx:id="level" layoutX="115" layoutY="550" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
 
     </Pane>
 

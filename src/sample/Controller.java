@@ -137,7 +137,7 @@ public class Controller implements Initializable {
     }
 
     public void update(){
-        System.out.println(knuckle.getIsMovingLeft()+" - "+knuckle.getIsMovingRight());
+
         if(!knuckle.getIsMovingLeft() && !knuckle.getIsMovingRight()){
             this.sound.stop();
         }
