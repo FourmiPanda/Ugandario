@@ -14,6 +14,8 @@
         <ImageView fx:id="options" layoutX="105" layoutY="426" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
         <ImageView fx:id="level" layoutX="115" layoutY="550" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
 
+        <ImageView fx:id="sound_off" visible="false" layoutX="453" layoutY="695" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
+        <ImageView fx:id="sound_on" layoutX="453" layoutY="695" onMouseClicked="#handleOnMouseClicked" styleClass="menu-button"/>
     </Pane>
 
 

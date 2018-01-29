@@ -27,7 +27,8 @@ public class Controller implements Initializable {
     Pane menu,lvl_1,level_choice;
 
     @FXML
-    ImageView play,options,level,title,lvl1,lvl2,lvl3,level_ch;
+    ImageView play,options,level,title,lvl1,lvl2,lvl3,level_ch,sound_off,sound_on;
+
 
     @FXML
     Player knuckle;
@@ -54,6 +55,19 @@ public class Controller implements Initializable {
                     menu.setVisible(false);
                     lvl_1.setVisible(false);
                     level_choice.setVisible(true);
+                    break;
+                case "sound_on":
+                case "sound_off":
+                    if(sound_on.isVisible()){
+                        sound_on.setVisible(false);
+                       sound_off.setVisible(true);
+                       this.ost.pause();
+                    }else{
+                        sound_on.setVisible(true);
+                        sound_off.setVisible(false);
+                        this.ost.play();
+                    }
+
                     break;
                 default:
                     break;
@@ -113,6 +127,7 @@ public class Controller implements Initializable {
 
         level_choice.setBackground(new Background(myBI));
 
+
         //Set Button
         play.setImage(new Image("img/tool/button_play.png"));
         options.setImage(new Image("img/tool/button_options.png"));
@@ -122,6 +137,9 @@ public class Controller implements Initializable {
         lvl2.setImage(new Image("img/tool/level_2.png"));
         lvl3.setImage(new Image("img/tool/level_3.png"));
         level_ch.setImage(new Image("img/tool/button_level.png"));
+
+        sound_off.setImage(new Image("img/tool/sound_mute.png"));
+        sound_on.setImage(new Image("img/tool/sound.png"));
         //Set focus
         lvl_1.setFocusTraversable(true);
 
