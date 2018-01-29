@@ -2,10 +2,12 @@ package Game;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 
-public class Player extends ImageView{
+public class Player extends ImageView {
+
 
     private ArrayList<Image> sprite = new ArrayList<>();
     private ArrayList<Image> spriteJump = new ArrayList<>();
@@ -27,6 +29,7 @@ public class Player extends ImageView{
 
         this.setImage(noMove);
     }
+
 
 
     public boolean getIsMovingRight(){

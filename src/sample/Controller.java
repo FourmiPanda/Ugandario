@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    Pane menu,lvl_1,level_choice;
+    Pane menu,lvl_1,level_choice,lvl_2,lvl_3;
 
     @FXML
     ImageView play,options,level,title,lvl1,lvl2,lvl3,level_ch,sound_off,sound_on;
@@ -54,7 +54,62 @@ public class Controller implements Initializable {
                 case "level":
                     menu.setVisible(false);
                     lvl_1.setVisible(false);
+                    lvl_3.setVisible(false);
+                    lvl_2.setVisible(false);
                     level_choice.setVisible(true);
+                    this.ost.stop();
+                    break;
+                case "lvl1":
+                    if(!lvl_1.getChildren().contains(knuckle)){
+                        if(lvl_2.getChildren().contains(knuckle)){
+                            lvl_2.getChildren().remove(knuckle);
+                            lvl_1.getChildren().add(knuckle);
+                        }else if(lvl_3.getChildren().contains(knuckle)){
+                            lvl_3.getChildren().remove(knuckle);
+                            lvl_1.getChildren().add(knuckle);
+                        }
+                    }
+                    menu.setVisible(false);
+                    level_choice.setVisible(false);
+                    lvl_3.setVisible(false);
+                    lvl_2.setVisible(false);
+                    lvl_1.setVisible(true);
+                    this.ost.stop();
+                    break;
+                case "lvl2":
+                    if(!lvl_2.getChildren().contains(knuckle)){
+                        if(lvl_1.getChildren().contains(knuckle)){
+                            lvl_1.getChildren().remove(knuckle);
+                            lvl_2.getChildren().add(knuckle);
+                        }else if(lvl_3.getChildren().contains(knuckle)){
+                            lvl_3.getChildren().remove(knuckle);
+                            lvl_2.getChildren().add(knuckle);
+                        }
+                    }
+                    menu.setVisible(false);
+                    level_choice.setVisible(false);
+                    lvl_3.setVisible(false);
+                    lvl_1.setVisible(false);
+                    lvl_2.setVisible(true);
+
+                    this.ost.stop();
+                    break;
+                case "lvl3":
+                    if(!lvl_3.getChildren().contains(knuckle)){
+                        if(lvl_2.getChildren().contains(knuckle)){
+                            lvl_2.getChildren().remove(knuckle);
+                            lvl_3.getChildren().add(knuckle);
+                        }else if(lvl_1.getChildren().contains(knuckle)){
+                            lvl_1.getChildren().remove(knuckle);
+                            lvl_3.getChildren().add(knuckle);
+                        }
+                    }
+                    menu.setVisible(false);
+                    level_choice.setVisible(false);
+                    lvl_3.setVisible(true);
+                    lvl_2.setVisible(false);
+                    lvl_1.setVisible(false);
+                    this.ost.stop();
                     break;
                 case "sound_on":
                 case "sound_off":
@@ -123,7 +178,19 @@ public class Controller implements Initializable {
         BackgroundImage myBI2= new BackgroundImage(new Image("img/bg/background_game3.gif",500,750,false,true),
                 BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
+
+        BackgroundImage myBI3= new BackgroundImage(new Image("img/bg/background_game2.gif",500,750,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+
+        BackgroundImage myBI4= new BackgroundImage(new Image("img/bg/level-1.gif",500,750,false,true),
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+
+
         lvl_1.setBackground(new Background(myBI2));
+        lvl_2.setBackground(new Background(myBI3));
+        lvl_3.setBackground(new Background(myBI4));
 
         level_choice.setBackground(new Background(myBI));
 
@@ -142,6 +209,8 @@ public class Controller implements Initializable {
         sound_on.setImage(new Image("img/tool/sound.png"));
         //Set focus
         lvl_1.setFocusTraversable(true);
+        lvl_2.setFocusTraversable(true);
+        lvl_3.setFocusTraversable(true);
 
         //Set sound
 
